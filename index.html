@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmonium Keyboard</title>
+    <link rel="stylesheet" href="styles.css">
+<style type="text/css" id="dcoder_stylesheet">body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.keyboard {
+    display: flex;
+    justify-content: space-around; /* Space buttons evenly */
+    width: 80vw; /* Set width relative to viewport */
+    height: 40vh; /* Set height for landscape */
+}
+
+.key {
+    margin: 10px;
+    padding: 20px 30px;
+    font-size: 24px; /* Increase font size for visibility */
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1; /* Make keys flexible and equal in size */
+}
+
+.key:hover {
+    background-color: #ddd;
+}
+
+.key:active {
+    background-color: #bbb;
+}</style></head>
+<body>
+    <div class="keyboard">
+        <button class="key" onmousedown="playSound('audio1')" onmouseup="stopSound('audio1')">Key 1</button>
+        <button class="key" onmousedown="playSound('audio2')" onmouseup="stopSound('audio2')">Key 2</button>
+        <button class="key" onmousedown="playSound('audio3')" onmouseup="stopSound('audio3')">Key 3</button>
+        <button class="key" onmousedown="playSound('audio4')" onmouseup="stopSound('audio4')">Key 4</button>
+        <button class="key" onmousedown="playSound('audio5')" onmouseup="stopSound('audio5')">Key 5</button>
+    </div>
+
+    <audio id="audio1" src="ट्रैक 1.mp3"></audio>
+    <audio id="audio2" src="ट्रैक 2.mp3"></audio>
+    <audio id="audio3" src="ट्रैक 3.mp3"></audio>
+    <audio id="audio4" src="ट्रैक 4.mp3"></audio>
+    <audio id="audio5" src="ट्रैक 5.mp3"></audio>
+
+    <script src="script.js"></script>
+
+<script type="text/javascript" id="dcoder_script">function playSound(audioId) {
+    var audio = document.getElementById(audioId);
+    audio.currentTime = 0; // Reset audio to the start
+    audio.play();
+}
+
+function stopSound(audioId) {
+    var audio = document.getElementById(audioId);
+    audio.pause(); // Pause the audio when the button is released
+    audio.currentTime = 0; // Reset the sound for next time
+}</script></body></html>
